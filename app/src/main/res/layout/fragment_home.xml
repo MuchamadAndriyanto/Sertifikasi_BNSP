@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    tools:context=".ui.HomeFragment">
+
+    <TextView
+        android:id="@+id/tvKpu"
+        android:layout_width="wrap_content"
+        android:text="KPU"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
+        android:textColor="@color/favoritColor"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/buttonInformasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="30dp"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:text="Informasi"
+        android:layout_below="@id/tvKpu"
+        android:background="@drawable/button_radius"
+        android:layout_marginStart="105dp"
+        android:layout_marginEnd="105dp"
+        app:backgroundTint="@null"
+        />
+
+    <Button
+        android:id="@+id/buttonForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="30dp"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:text="Form Entry"
+        android:layout_below="@id/buttonInformasi"
+        android:background="@drawable/button_radius"
+        android:layout_marginStart="105dp"
+        android:layout_marginEnd="105dp"
+        app:backgroundTint="@null"
+        />
+
+    <Button
+        android:id="@+id/buttonData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="30dp"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:text="Lihat Data"
+        android:layout_below="@id/buttonForm"
+        android:background="@drawable/button_radius"
+        android:layout_marginStart="105dp"
+        android:layout_marginEnd="105dp"
+        app:backgroundTint="@null"
+        />
+
+    <Button
+        android:id="@+id/buttonKeluar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="30dp"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:text="Keluar"
+        android:layout_below="@id/buttonData"
+        android:background="@drawable/button_radius"
+        android:layout_marginStart="105dp"
+        android:layout_marginEnd="105dp"
+        app:backgroundTint="@null"
+        />
+
+</RelativeLayout>

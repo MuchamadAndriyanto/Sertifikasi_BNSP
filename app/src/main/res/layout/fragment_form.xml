@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    tools:context=".ui.FormFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvForm"
+            android:layout_width="wrap_content"
+            android:text="Form Entry"
+            android:layout_centerHorizontal="true"
+            android:textSize="25sp"
+            android:textColor="@color/favoritColor"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvNik"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_below="@id/tvForm"
+            android:layout_marginTop="10dp"
+            android:text="Nik"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputNik"
+            android:hint="Input Nik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            app:hintEnabled="true"
+            android:layout_below="@id/tvNik"
+            app:endIconMode="clear_text"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
+            android:backgroundTint="@color/white"
+            tools:ignore="HardcodedText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nikEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/inputNik"
+            android:text="Nama"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputNama"
+            android:hint="Input Nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            app:hintEnabled="true"
+            android:layout_below="@id/tvNama"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
+            android:backgroundTint="@color/white"
+            tools:ignore="HardcodedText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/namaEdiText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/white"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvNomor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/inputNama"
+            android:text="No.HP"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputNo"
+            android:hint="+62"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            app:hintEnabled="true"
+            android:layout_below="@id/tvNomor"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
+            android:backgroundTint="@color/white"
+            tools:ignore="HardcodedText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/noEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvJK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/inputNo"
+            android:text="Jenis Kelamin"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/tvJK"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="45dp"
+            android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:id="@+id/radioSex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <RadioButton
+                    android:id="@+id/radioMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Laki-laki"
+                    android:layout_marginEnd="45dp"
+                    android:textColor="@color/white"
+                    />
+
+                <RadioButton
+                    android:id="@+id/radioFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="45dp"
+                    android:text="Perempuan"/>
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/ll1"
+            android:text="Tanggal"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputTanggal"
+            android:hint="Tanggal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            app:hintEnabled="true"
+            android:layout_below="@id/tvTanggal"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
+            android:backgroundTint="@color/white"
+            tools:ignore="HardcodedText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tanggalEdiText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/white"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvAlamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/inputTanggal"
+            android:text="Alamat"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputAlamat"
+            android:hint="Alamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            app:hintEnabled="true"
+            android:layout_below="@id/tvAlamat"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
+            android:backgroundTint="@color/white"
+            tools:ignore="HardcodedText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/alamatEdiText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/white"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonAlamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="5dp"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:text="Cek Lokasi"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="45dp"
+            android:layout_below="@id/inputAlamat"
+            android:background="@drawable/button_radius"
+            app:backgroundTint="@null"
+            />
+
+        <TextView
+            android:id="@+id/tvGambar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/buttonAlamat"
+            android:text="Gambar"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_below="@id/tvGambar"
+            android:id="@+id/profile_image"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_photo_camera_24"
+            app:civ_border_width="5dp"
+            app:civ_border_color="@color/backgroud_color"/>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="10dp"
+            android:padding="12dp"
+            android:layout_below="@id/profile_image"
+            android:background="@drawable/button_radius"
+            android:layout_marginStart="110dp"
+            android:layout_marginEnd="110dp"
+            app:backgroundTint="@null"
+            android:text="Submit"
+            />
+
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

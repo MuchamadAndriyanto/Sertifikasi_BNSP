@@ -34,7 +34,6 @@ class DataAdapter(private var dataList: List<DataKpu>) : RecyclerView.Adapter<Da
             .placeholder(R.drawable.ic_launcher_background) // placeholder image while loading
             .error(R.drawable.ic_launcher_foreground) // error image if Glide fails to load
             .into(holder.binding.ivBackground)
-
     }
 
     override fun getItemCount(): Int {

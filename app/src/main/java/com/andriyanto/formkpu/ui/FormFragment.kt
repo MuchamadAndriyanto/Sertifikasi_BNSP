@@ -3,6 +3,8 @@ package com.andriyanto.formkpu.ui
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.location.Address
+import android.location.Geocoder
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -11,6 +13,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -24,10 +27,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.cast.framework.media.ImagePicker
+import com.google.android.gms.maps.model.LatLng
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.IOException
 
 class FormFragment : Fragment() {
 
@@ -35,6 +40,7 @@ class FormFragment : Fragment() {
     private lateinit var dbRoom: DatabaseDataKpu
     private lateinit var viewModel: DataViewModel
     private lateinit var dataGambarUri: Uri
+    private lateinit var buttonAlamat: Button
 
     companion object {
         const val IMAGE_REQUEST_CODE = 1_000
@@ -62,7 +68,49 @@ class FormFragment : Fragment() {
             openGallery()
         }
 
+        binding.buttonAlamat.setOnClickListener {
+            checkLocation()
+        }
 
+    }
+
+    private fun checkLocation() {
+        val inputAlamat: String = binding.alamatEdiText.text.toString()
+
+        if (inputAlamat.isNotEmpty()) {
+            val geocoder = Geocoder(requireContext())
+            try {
+                val addresses: List<Address> = geocoder.getFromLocationName(inputAlamat, 1)!!
+                if (addresses.isNotEmpty()) {
+                    val address = addresses[0]
+                    val latitude = address.latitude
+                    val longitude = address.longitude
+
+                    // Lakukan sesuatu dengan latitude dan longitude, contohnya tampilkan pada peta
+                    val location = LatLng(latitude, longitude)
+                    // Anda bisa menggunakan variabel 'location' untuk menampilkan pada peta atau melakukan tindakan lainnya
+
+                    // Tampilkan hasil menggunakan Toast
+                    Toast.makeText(
+                        requireContext(),
+                        "Latitude: $latitude, Longitude: $longitude",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    // Handle the case where no address is found
+                    Toast.makeText(requireContext(), "Alamat tidak ditemukan", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: IOException) {
+                // Handle the exception
+                Toast.makeText(
+                    requireContext(),
+                    "Terjadi kesalahan saat mencari lokasi: ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        } else {
+            Toast.makeText(requireContext(), "Masukkan alamat terlebih dahulu", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun openGallery() {
@@ -74,12 +122,6 @@ class FormFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val imageUri = data?.data
-
-            // Save the image URI in SharedPreferences
-            val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
-            val editor = sharedPref.edit()
-            editor.putString("userImageUri", imageUri.toString())
-            editor.apply()
 
             // Update dataGambarUri
             dataGambarUri = imageUri!!

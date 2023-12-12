@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="20dp"
+    android:backgroundTint="@color/backgroud_color"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/klik"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="1"
+            android:id="@+id/noteId"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="12344"
+            android:id="@+id/dataNik"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:layout_below="@+id/noteId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="nama"
+            android:id="@+id/dataNama"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:layout_below="@+id/dataNik"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="097766"
+            android:id="@+id/dataHp"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:layout_below="@+id/dataNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="jenis kelamin"
+            android:id="@+id/dataJenisKelamin"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:layout_below="@+id/dataHp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="tanggal"
+            android:id="@+id/dataTanggal"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:layout_below="@+id/dataJenisKelamin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="alamat"
+            android:id="@+id/dataAlamat"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:layout_below="@+id/dataTanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--            <ImageView-->
+        <!--                android:id="@+id/ivBackground"-->
+        <!--                android:layout_width="150dp"-->
+        <!--                android:layout_height="130dp"-->
+        <!--                android:scaleType="centerCrop"-->
+        <!--                android:layout_centerHorizontal="true"-->
+        <!--                android:layout_below="@id/dataAlamat"-->
+        <!--                tools:src="@tools:sample/backgrounds/scenic"-->
+        <!--                tools:ignore="ContentDescription" />-->
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

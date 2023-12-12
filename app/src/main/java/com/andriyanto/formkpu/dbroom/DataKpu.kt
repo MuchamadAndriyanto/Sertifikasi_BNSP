@@ -15,5 +15,6 @@ data class DataKpu(
     var dataHp : String,
     var dataJk : String,
     var dataTanggal : String,
-    var dataAlamat : String
+    var dataAlamat : String,
+    var dataGambar : String
 ) : Parcelable

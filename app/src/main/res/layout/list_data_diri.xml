@@ -24,75 +24,191 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:text="12344"
-            android:id="@+id/dataNik"
-            android:textSize="15sp"
+        <LinearLayout
+            android:id="@+id/llPalace"
+            android:layout_below="@id/noteId"
             android:layout_marginTop="10dp"
-            android:textColor="@color/white"
-            android:layout_below="@+id/noteId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="nama"
-            android:id="@+id/dataNama"
+            <TextView
+                android:text="NIK              :"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="1234"
+                android:id="@+id/dataNik"
+                android:textSize="15sp"
+                android:layout_marginStart="15dp"
+                android:textColor="@color/white"
+                android:layout_below="@+id/noteId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llPalace1"
+            android:layout_below="@id/llPalace"
             android:layout_marginTop="10dp"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:layout_below="@+id/dataNik"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="097766"
-            android:id="@+id/dataHp"
+            <TextView
+                android:text="NAMA         :"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="nama"
+                android:id="@+id/dataNama"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llPalace2"
+            android:layout_below="@id/llPalace1"
             android:layout_marginTop="10dp"
-            android:textSize="15sp"
-            android:textColor="@color/white"
-            android:layout_below="@+id/dataNama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="jenis kelamin"
-            android:id="@+id/dataJenisKelamin"
-            android:textColor="@color/white"
+            <TextView
+                android:text="NO.HP         :"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="097766"
+                android:id="@+id/dataHp"
+                android:textSize="15sp"
+                android:layout_marginStart="15sp"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llPalace3"
+            android:layout_below="@id/llPalace2"
             android:layout_marginTop="10dp"
-            android:textSize="15sp"
-            android:layout_below="@+id/dataHp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="tanggal"
-            android:id="@+id/dataTanggal"
-            android:textColor="@color/white"
+            <TextView
+                android:text="JENIS KELAMIN  :"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="jenis kelamin"
+                android:id="@+id/dataJenisKelamin"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_marginStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llPalace4"
+            android:layout_below="@id/llPalace3"
             android:layout_marginTop="10dp"
-            android:textSize="15sp"
-            android:layout_below="@+id/dataJenisKelamin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="alamat"
-            android:id="@+id/dataAlamat"
-            android:textColor="@color/white"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TANGGAL  :"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:text="02-10-2001"
+                android:id="@+id/dataTanggal"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_marginStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llPalace5"
+            android:layout_below="@id/llPalace4"
             android:layout_marginTop="10dp"
-            android:textSize="15sp"
-            android:layout_below="@+id/dataTanggal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/ivBackground"
-            android:layout_width="150dp"
-            android:layout_height="130dp"
-            android:scaleType="centerCrop"
+            <TextView
+                android:text="ALAMAT    :"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="alamat"
+                android:id="@+id/dataAlamat"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_marginStart="15dp"
+                android:layout_below="@+id/dataTanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="200dp"
+            android:layout_height="180dp"
+            android:layout_below="@id/llPalace5"
+            android:layout_marginTop="25dp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/dataAlamat"
-            tools:src="@tools:sample/backgrounds/scenic"
-            tools:ignore="ContentDescription" />
+            app:cardCornerRadius="20dp">
+
+            <ImageView
+                android:id="@+id/ivBackground"
+                android:layout_width="200dp"
+                android:layout_height="180dp"
+                android:scaleType="centerCrop"
+                android:layout_below="@id/dataAlamat"
+                tools:src="@tools:sample/backgrounds/scenic"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
 

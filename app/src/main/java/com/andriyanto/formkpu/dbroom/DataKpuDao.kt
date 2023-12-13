@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
+//mengabstraksi akses ke basis data SQLite
 @Dao
 interface DataKpuDao {
 
@@ -17,5 +18,9 @@ interface DataKpuDao {
 
     @Query("DELETE FROM DataKpu WHERE id = :dataId")
     suspend fun deleteDataById(dataId: Int)
+
+    @Query("SELECT * FROM DataKpu WHERE dataNik = :nik LIMIT 1")//digunakan untuk mendapatkan nik yang sudah ada di list
+    suspend fun getDataByNik(nik: String): DataKpu?
+
 
 }

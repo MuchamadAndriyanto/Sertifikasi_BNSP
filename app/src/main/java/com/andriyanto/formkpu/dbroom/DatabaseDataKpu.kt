@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+// membuat dan memelihara koneksi ke basis data SQLite
 @Database(entities = [DataKpu::class], version = 1, exportSchema = false)
 abstract class DatabaseDataKpu : RoomDatabase(){
     abstract fun itemDao(): DataKpuDao

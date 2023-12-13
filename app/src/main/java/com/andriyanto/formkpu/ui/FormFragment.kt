@@ -40,7 +40,6 @@ class FormFragment : Fragment() {
     private lateinit var dbRoom: DatabaseDataKpu
     private lateinit var viewModel: DataViewModel
     private lateinit var dataGambarUri: Uri
-    private lateinit var buttonAlamat: Button
 
     companion object {
         const val IMAGE_REQUEST_CODE = 1_000
@@ -74,11 +73,12 @@ class FormFragment : Fragment() {
 
     }
 
+    // mengubah alamat (dalam bentuk string) menjadi koordinat geografis (latitude dan longitude)
     private fun checkLocation() {
         val inputAlamat: String = binding.alamatEdiText.text.toString()
 
         if (inputAlamat.isNotEmpty()) {
-            val geocoder = Geocoder(requireContext())
+            val geocoder = Geocoder(requireContext())//Menggunakan Geocoder untuk mengonversi alamat menjadi daftar alamat
             try {
                 val addresses: List<Address> = geocoder.getFromLocationName(inputAlamat, 1)!!
                 if (addresses.isNotEmpty()) {
@@ -86,9 +86,8 @@ class FormFragment : Fragment() {
                     val latitude = address.latitude
                     val longitude = address.longitude
 
-                    // Lakukan sesuatu dengan latitude dan longitude, contohnya tampilkan pada peta
+                    // Lakukan sesuatu dengan latitude dan longitude
                     val location = LatLng(latitude, longitude)
-                    // Anda bisa menggunakan variabel 'location' untuk menampilkan pada peta atau melakukan tindakan lainnya
 
                     // Tampilkan hasil menggunakan Toast
                     Toast.makeText(
@@ -97,11 +96,9 @@ class FormFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
-                    // Handle the case where no address is found
                     Toast.makeText(requireContext(), "Alamat tidak ditemukan", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: IOException) {
-                // Handle the exception
                 Toast.makeText(
                     requireContext(),
                     "Terjadi kesalahan saat mencari lokasi: ${e.message}",
@@ -126,17 +123,20 @@ class FormFragment : Fragment() {
             // Update dataGambarUri
             dataGambarUri = imageUri!!
 
-            // Load the image into profileImage and apply CircleCrop
+            // memuat gambar yang dipilih ke dalam ImageView dan menerapkan efek CircleCrop agar gambar berbentuk lingkaran
             loadImageWithCircleCrop(dataGambarUri)
         }
     }
+
     private fun loadImageWithCircleCrop(imageUri: Uri) {
         Glide.with(this)
             .load(imageUri)
             .apply(RequestOptions.bitmapTransform(CircleCrop()))
             .into(binding.profileImage)
     }
+
     private fun addTask() {
+        //Mengambil nilai dari input pengguna
         val dataNik = binding.nikEditText.text.toString()
         val dataNama = binding.namaEdiText.text.toString()
         val dataHp = binding.noEditText.text.toString()
@@ -148,14 +148,27 @@ class FormFragment : Fragment() {
             if (::dataGambarUri.isInitialized) {
                 lifecycleScope.launch(Dispatchers.IO) {
                     try {
-                        val dataTodoList = DataKpu(0, dataNik, dataNama, dataHp, dataJk, dataTanggal, dataAlamat, dataGambarUri.toString())
-                        viewModel.insertData(dataTodoList)
-                        withContext(Dispatchers.Main) {
-                            findNavController().navigate(R.id.action_formFragment_to_dataFragment)
+                        val existingData = viewModel.getDataByNik(dataNik)
+                        if (existingData == null) {
+                            val dataDiri = DataKpu(0, dataNik, dataNama, dataHp, dataJk, dataTanggal, dataAlamat, dataGambarUri.toString())//penyimpanan data
+                            Log.d("MyTag", "Data inserted: $dataDiri")
+                            viewModel.insertData(dataDiri)
+                            withContext(Dispatchers.Main) {
+                                findNavController().navigate(R.id.action_formFragment_to_dataFragment)
+                            }
+                        } else {
+                            // semisal sudah ada nik gak bisa list
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(
+                                    requireContext(),
+                                    "Data dengan NIK tersebut sudah ada",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
-                    } catch (e: Exception) {
+                    } catch (e: Exception) {//pengecekan saat kesalahan selama proses penyimpanan data
                         e.printStackTrace()
-                        Log.e("YourFragmentTag", "Error adding data: ${e.message}")
+                        Log.e("FragmentTag", "Error adding data: ${e.message}")
                         withContext(Dispatchers.Main) {
                             Toast.makeText(
                                 requireContext(),

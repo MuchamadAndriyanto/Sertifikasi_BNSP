@@ -9,10 +9,12 @@ import com.andriyanto.formkpu.dbroom.module.dbModule
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
+// digunakan untuk menyimpan dan mengelola data yang berkaitan dengan UI
 class DataViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val itemDao = dbModule(application.applicationContext).itemDao
+    private val itemDao = dbModule(application.applicationContext).itemDao // digunakan untuk berinteraksi dengan basis data
     private val dataList: MutableLiveData<List<DataKpu>> by lazy {
         MutableLiveData<List<DataKpu>>()
     }
@@ -37,6 +39,13 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
         GlobalScope.launch(Dispatchers.IO) {
             itemDao.deleteDataById(dataId)
             dataList.postValue(itemDao.getData())
+        }
+    }
+
+    //untuk mendapatkan data berdasarkan NIK
+    suspend fun getDataByNik(nik: String): DataKpu? {
+        return withContext(Dispatchers.IO) {
+            itemDao.getDataByNik(nik)
         }
     }
 }

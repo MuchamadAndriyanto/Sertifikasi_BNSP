@@ -30,9 +30,8 @@ class DataAdapter(private var dataList: List<DataKpu>) : RecyclerView.Adapter<Da
         holder.binding.dataAlamat.text = data.dataAlamat
 
         Glide.with(holder.itemView.context)
-            .load(Uri.parse(data.dataGambar)) // assuming dataGambar is the image URI or path
-            .placeholder(R.drawable.ic_launcher_background) // placeholder image while loading
-            .error(R.drawable.ic_launcher_foreground) // error image if Glide fails to load
+            .load(Uri.parse(data.dataGambar))
+            .error(R.drawable.ic_launcher_foreground)
             .into(holder.binding.ivBackground)
     }
 
@@ -40,6 +39,7 @@ class DataAdapter(private var dataList: List<DataKpu>) : RecyclerView.Adapter<Da
         return dataList.size
     }
 
+    //mengganti data yang ada dalam adapter dengan data yang baru
     fun setData(newDataList: List<DataKpu>) {
         dataList = newDataList
         notifyDataSetChanged()
